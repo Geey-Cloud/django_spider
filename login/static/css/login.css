@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+#something{
+    font-size: 20px;
+    color: #FFFFFF;
+    background: linear-gradient(to right, #5D4EF3 0%, #5D4EF3 40%, #5D4EF3 40%, #FFFFFF 100%);
+    padding-left: 75px;
+}
+#content{
+    display: flex;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 10%;
+    bottom: 20%;
+    background-color: #5D4EF3;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+#display-text{
+    flex: 2;
+    position: absolute;
+    left: 5%;
+    right: 45%;
+    top:10%;
+    bottom: 10%;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: 120px;
+    font-size: 36px;
+}
+#login{
+    flex: 3;
+    border: 1px solid #FFFFFF;
+    background: linear-gradient(to top, #FFFFFF 0%, #FFFFFF 75%, #5D4EF3 25%, #5D4EF3 100%);
+    border-radius: 30px;
+    position: absolute;
+    left: 60%;
+    right: 5%;
+    top: 10%;
+    bottom: 10%;
+    color: #5D4EF3;
+    padding: 25px;
+}
+#login-form{
+    padding-top: 25%;
+}
+#title{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 75%;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 36px;
+    font-size: 32px;
+}
+
+.btn-form{
+    background-color: #5D4EF3;
+    border: 1px solid #FFFFFF;
+}
+
+#register{
+    float: right;
+}

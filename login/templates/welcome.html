@@ -1,0 +1,64 @@
+{#{% load static %}#}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="3;url=/login/">
+    <title>欢迎页</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #title {
+            display: grid;
+            grid-template-rows: 20% auto auto auto;
+            background-color: #2196F3;
+            height: 792px;
+        }
+
+        .grid-item {
+            font-size: 40px;
+            grid-row: 2;
+            color: #f0f0f0;
+            text-align: center;
+            padding-top: 35px;
+        }
+
+        #grid-item1 {
+            grid-row: 2;
+        }
+
+        #grid-item2 {
+            grid-row: 3;
+        }
+
+        #name {
+            font-size: 15px;
+            color: #f0f0f0;
+            text-align: right;
+            padding-right: 10px;
+            grid-row: 4;
+        }
+
+        #logo {
+            grid-row: 1;
+            text-align: center;
+            padding-top: 35px;
+        }
+    </style>
+</head>
+<div id="title">
+    <div id="logo">
+        <img src="../static/img/logo.png" alt="武汉晴川学院">
+    </div>
+    <div id="inlineBox">
+        <p id="grid-item1" class="grid-item">武汉晴川学院 毕业设计</p>
+        <p id="grid-item2" class="grid-item">基于Django的B站UP主的数据管理系统设计与实现</p>
+    </div>
+    <p class="grid-item" id="name">计算机学院/计算机科学与技术/1804班 杨云翱</p>
+</div>
+</html>

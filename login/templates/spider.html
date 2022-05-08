@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/plugins/bootstrap-4.6.1/css/bootstrap.css' %}">
+    <script type="text/javascript" src="{% static '/plugins/jQuery/jquery.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/plugins/bootstrap-4.6.1/js/bootstrap.bundle.min.js' %}"></script>
+    <title>数据展示页</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <p class="navbar-brand">基于Django的B站UP主的数据管理系统设计与实现</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <p class="nav-link">Home</p>
+            </li>
+        </ul>
+        <div class="dropdown">
+            {% csrf_token %}
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                {{ name }}
+            </button>
+            <div class="dropdown-menu">
+                <a href="/login/" class="dropdown-item">登录</a>
+                <a href="/login/" class="dropdown-item">退出</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% csrf_token %}
+    <div style="margin-top: 20px;">
+        <p>本站目前为止，共爬取B站用户数：{{ user_number }}</p>
+    </div>
+    <hr>
+    <div>
+        <iframe frameborder="0" src="pie_sex" width="100%" height="450px"></iframe>
+    </div>
+    <hr>
+    <div>
+        <iframe frameborder="0" src="funnel_level" width="100%" height="700px"></iframe>
+    </div>
+    <hr>
+    <div>
+        <iframe frameborder="0" src="bar_followers" width="100%" height="900px"></iframe>
+    </div>
+    <hr>
+    <div>
+        <iframe frameborder="0" src="pie_vip" width="100%" height="600px"></iframe>
+    </div>
+</div>
+</body>
+</html>

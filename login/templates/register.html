@@ -1,0 +1,183 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
+    <link href="{% static 'plugins/bootstrap-4.6.1/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{% static '/plugins/jQuery/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-4.6.1/js/bootstrap.bundle.min.js' %}"></script>
+    <title>注册</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        #navbar {
+            font-size: 20px;
+            color: #FFFFFF;
+            background: linear-gradient(to right, #5D4EF3 0%, #5D4EF3 40%, #5D4EF3 40%, #FFFFFF 100%);
+            padding-left: 75px;
+        }
+
+        #content {
+            display: flex;
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: 10%;
+            bottom: 20%;
+            background-color: #5D4EF3;
+            border-bottom-left-radius: 100px;
+            border-top-right-radius: 100px;
+        }
+
+        #display-text {
+            flex: 2;
+            position: absolute;
+            left: 5%;
+            right: 45%;
+            top: 10%;
+            bottom: 10%;
+            text-align: center;
+            color: #FFFFFF;
+            padding-top: 120px;
+            font-size: 36px;
+        }
+
+        #login {
+            flex: 3;
+            border: 1px solid #FFFFFF;
+            background: linear-gradient(to top, #FFFFFF 0%, #FFFFFF 75%, #5D4EF3 25%, #5D4EF3 100%);
+            border-radius: 30px;
+            position: absolute;
+            left: 60%;
+            right: 5%;
+            top: 5%;
+            bottom: 5%;
+            color: #5D4EF3;
+            padding: 25px;
+        }
+
+        #login-form {
+            padding-top: 25%;
+        }
+
+        #title {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 75%;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 36px;
+            font-size: 32px;
+        }
+
+        .btn-form {
+            background-color: #5D4EF3;
+            border: 1px solid #FFFFFF;
+        }
+
+        #return {
+            float: right;
+        }
+        #emailHelp{
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <p class="navbar-brand">基于Django的B站UP主的数据管理系统设计与实现</p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="/spider">Home</a>
+                </li>
+            </ul>
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-file-person" viewBox="0 0 16 16">
+  <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+  <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg>
+                </span>
+                    <span>
+                    请登录
+                </span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="/login/" class="dropdown-item">登录</a>
+                    <a href="/login/" class="dropdown-item">退出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="content">
+    <div id="display-text">
+        <p>基于Django的B站UP主的数据管理系统</p>
+        <p>设计与实现</p>
+    </div>
+    <div id="login">
+        <div class="login-form" id="login-form">
+            <div id="tile-form">
+                <div id="title">
+                    注 册
+                </div>
+            </div>
+            <form class="login-form" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">账号</label>
+                    <input type="text" class="form-control" id="name"
+                           aria-describedby="emailHelp" placeholder="邮箱/个性地址" name="name">
+                    <div id="emailHelp" class="form-text">我们永远不会与他人共享您的邮箱</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密码</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="password_chk" class="form-label">确认密码</label>
+                    <input type="password" class="form-control" id="password" name="password_check">
+                </div>
+
+                {% if messages %}
+                    <script>
+                        {% for msg in messages %}
+                            alert('{{ msg.message }}');
+                        {% endfor %}
+                    </script>
+                {% endif %}
+
+                <div>
+                    <span>
+                        <button name="login" type="submit" class="btn btn-primary btn-form">注册</button>
+                    </span>
+                    <span id="return">
+                        已有账号？点我
+                        <a class="btn btn-primary btn-form" href="/login">登录</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
