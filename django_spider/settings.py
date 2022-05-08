@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'django_spider.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'userDB',
+        'NAME': 'your database name',
         'USER': 'root',
-        'PASSWORD': '200714',
+        'PASSWORD': 'your database password',
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }
